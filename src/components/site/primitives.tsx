@@ -75,7 +75,7 @@ export function PillLink({
 
   if (to) {
     return (
-      <Link to={to} hash={hash} className={classes}>
+      <Link to={to} {...(hash ? { hash } : {})} className={classes}>
         {children}
       </Link>
     );
@@ -104,7 +104,7 @@ export function TextLink({
 
   if (to) {
     return (
-      <Link to={to} hash={hash} className={classes}>
+      <Link to={to} {...(hash ? { hash } : {})} className={classes}>
         {children}
         <span aria-hidden="true">→</span>
       </Link>
