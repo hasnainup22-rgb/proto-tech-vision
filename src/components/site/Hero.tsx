@@ -1,4 +1,5 @@
 import { Pill, PillLink } from "./primitives";
+import { Reveal } from "./Reveal";
 
 function WaveBackdrop() {
   return (
@@ -26,7 +27,7 @@ export function Hero() {
   return (
     <section id="home" className="relative overflow-hidden px-5 pt-20 pb-24 md:pt-28 md:pb-32">
       <WaveBackdrop />
-      <div className="relative mx-auto max-w-3xl text-center">
+      <Reveal className="relative mx-auto max-w-3xl text-center">
         <Pill>Trusted by 100+ enterprises</Pill>
         <p className="mt-8 text-xl font-medium text-muted-foreground md:text-2xl">Welcome to ProtoTech</p>
         <h1 className="mt-3 text-4xl leading-tight font-semibold text-foreground md:text-6xl">
@@ -40,9 +41,9 @@ export function Hero() {
           <PillLink href="#contact" variant="outline">
             Free Consultation
           </PillLink>
-          <PillLink href="#tech">Our Services</PillLink>
+          <PillLink to="/solutions">Our Services</PillLink>
         </div>
-      </div>
+      </Reveal>
     </section>
   );
 }
