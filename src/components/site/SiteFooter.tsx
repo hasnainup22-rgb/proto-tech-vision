@@ -1,48 +1,50 @@
+import { Link } from "@tanstack/react-router";
+
 import logoAsset from "@/assets/prototech-logo.png.asset.json";
 
 const columns = [
   {
     title: "Company",
     links: [
-      { label: "Home", href: "#home" },
-      { label: "About Us", href: "#internship" },
-      { label: "Services", href: "#tech" },
-      { label: "Internship Program", href: "#internship" },
-      { label: "ProtoArena & Ecosystem", href: "#ecosystem" },
-      { label: "Contact Us", href: "#contact" },
+      { label: "Home", to: "/" },
+      { label: "Solutions", to: "/solutions" },
+      { label: "Internship Program", to: "/internship" },
+      { label: "ProtoArena & Ecosystem", to: "/arena" },
+      { label: "Courses", to: "/courses" },
+      { label: "Contact Us", to: "/", hash: "contact" },
     ],
   },
   {
     title: "Products",
     links: [
-      { label: "Hospital Management & Information System", href: "#products" },
-      { label: "Human Resource Management", href: "#products" },
-      { label: "Employee Self Service Portal", href: "#products" },
-      { label: "Attendance Management", href: "#products" },
+      { label: "Hospital Management & Information System", to: "/solutions" },
+      { label: "Human Resource Management", to: "/solutions" },
+      { label: "Employee Self Service Portal", to: "/solutions" },
+      { label: "Attendance Management", to: "/solutions" },
     ],
   },
   {
     title: "Courses",
     links: [
-      { label: "Web Development (MERN / Laravel)", href: "#courses" },
-      { label: "Mobile App Development", href: "#courses" },
-      { label: "WordPress / Shopify Development", href: "#courses" },
-      { label: "Digital Marketing", href: "#courses" },
+      { label: "Web Development (MERN / Laravel)", to: "/courses" },
+      { label: "Mobile App Development", to: "/courses" },
+      { label: "WordPress / Shopify Development", to: "/courses" },
+      { label: "Digital Marketing", to: "/courses" },
     ],
   },
   {
     title: "Legal",
     links: [
-      { label: "Privacy Policy", href: "#contact" },
-      { label: "Terms of Service", href: "#contact" },
-      { label: "Cookie Policy", href: "#contact" },
+      { label: "Privacy Policy", to: "/", hash: "contact" },
+      { label: "Terms of Service", to: "/", hash: "contact" },
+      { label: "Cookie Policy", to: "/", hash: "contact" },
     ],
   },
 ];
 
 export function SiteFooter() {
   return (
-    <footer id="courses" className="scroll-mt-28 border-t border-border bg-surface px-5 py-16">
+    <footer className="scroll-mt-28 border-t border-border bg-surface px-5 py-16">
       <div className="mx-auto grid w-full max-w-6xl gap-12 lg:grid-cols-[1.4fr_repeat(4,1fr)]">
         <div>
           <div className="flex items-center gap-3">
@@ -75,12 +77,13 @@ export function SiteFooter() {
             <ul className="mt-5 space-y-3">
               {column.links.map((link) => (
                 <li key={link.label}>
-                  <a
-                    href={link.href}
+                  <Link
+                    to={link.to}
+                    {...("hash" in link && link.hash ? { hash: link.hash } : {})}
                     className="text-sm leading-snug text-foreground/75 transition-colors hover:text-brand-deep"
                   >
                     {link.label}
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>
