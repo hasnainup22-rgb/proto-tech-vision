@@ -1,24 +1,64 @@
 import { createFileRoute } from "@tanstack/react-router";
 
-// No head() here: the home route inherits title/description/og/twitter from
-// __root.tsx, and ships no og:image so serve-time hosting can inject the
-// project's social preview (explicit og:image or latest screenshot).
+import { SiteHeader } from "@/components/site/SiteHeader";
+import { Hero } from "@/components/site/Hero";
+import { Internship } from "@/components/site/Internship";
+import { Ecosystem } from "@/components/site/Ecosystem";
+import { Products } from "@/components/site/Products";
+import { TechStack } from "@/components/site/TechStack";
+import { Testimonials } from "@/components/site/Testimonials";
+import { Stats } from "@/components/site/Stats";
+import { ClosingCta } from "@/components/site/ClosingCta";
+import { SiteFooter } from "@/components/site/SiteFooter";
+
+const title = "ProtoTech Solution | IT Services, Products & Academy";
+const description =
+  "ProtoTech engineers resilient technology ecosystems: enterprise software, a 6-week university internship program, STEM academy, ProtoArena esports and career advisory.";
+
 export const Route = createFileRoute("/")({
   component: Index,
+  head: () => ({
+    meta: [
+      { title },
+      { name: "description", content: description },
+      { property: "og:title", content: title },
+      { property: "og:description", content: description },
+      { property: "og:type", content: "website" },
+      { property: "og:url", content: "/" },
+      { name: "twitter:card", content: "summary_large_image" },
+    ],
+    links: [{ rel: "canonical", href: "/" }],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "Organization",
+          name: "ProtoTech IT Solutions & Academy",
+          email: "prototechsolution.pk@gmail.com",
+          telephone: "+92 312 0516684",
+          description,
+        }),
+      },
+    ],
+  }),
 });
 
-// IMPORTANT: Replace this placeholder. See ./README.md for routing conventions.
 function Index() {
   return (
-    <div
-      className="flex min-h-screen items-center justify-center"
-      style={{ backgroundColor: "#fcfbf8" }}
-    >
-      <img
-        data-lovable-blank-page-placeholder="REMOVE_THIS"
-        src="https://cdn.gpteng.co/blank-app-v1.svg"
-        alt="Your app will live here!"
-      />
+    <div className="min-h-screen bg-background">
+      <SiteHeader />
+      <main>
+        <Hero />
+        <Internship />
+        <Ecosystem />
+        <Products />
+        <TechStack />
+        <Stats />
+        <Testimonials />
+        <ClosingCta />
+      </main>
+      <SiteFooter />
     </div>
   );
 }
