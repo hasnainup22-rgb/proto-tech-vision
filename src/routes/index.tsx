@@ -3,6 +3,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { SiteHeader } from "@/components/site/SiteHeader";
 import { Hero } from "@/components/site/Hero";
 import { Internship } from "@/components/site/Internship";
+import { ProtoArenaSection } from "@/components/site/ProtoArenaSection";
 import { Ecosystem } from "@/components/site/Ecosystem";
 import { Products } from "@/components/site/Products";
 import { TechStack } from "@/components/site/TechStack";
@@ -51,6 +52,7 @@ function Index() {
       <main>
         <Hero />
         <Internship />
+        <ProtoArenaSection />
         <Ecosystem />
         <Products />
         <TechStack />

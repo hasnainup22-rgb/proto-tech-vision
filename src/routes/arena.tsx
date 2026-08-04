@@ -59,6 +59,44 @@ function ArenaPage() {
           ))}
         </div>
       </Section>
+
+      <Section className="bg-surface">
+        <SectionHeading
+          label="Platform Experience"
+          title="What players"
+          highlight="get"
+          description="Fast onboarding, live match scoring, coaching support and a safe community space for all skill levels."
+        />
+        <div className="mt-14 grid gap-6 md:grid-cols-2 lg:grid-cols-4">
+          {[
+            {
+              title: "Fast Registration",
+              description: "Join events and book slots with a few taps on any device.",
+            },
+            {
+              title: "Ranked Matches",
+              description: "Compete in skill-based brackets and climb real-time leaderboards.",
+            },
+            {
+              title: "Community Hubs",
+              description: "Connect with clubs, practice groups and live tournament rooms.",
+            },
+            {
+              title: "Expert Guidance",
+              description: "Receive coaching notes, strategy tips and progress reviews from pros.",
+            },
+          ].map((feature) => (
+            <article
+              key={feature.title}
+              className="rounded-3xl border border-border bg-background p-8 transition-colors hover:border-brand"
+            >
+              <h3 className="text-lg font-semibold text-foreground">{feature.title}</h3>
+              <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{feature.description}</p>
+            </article>
+          ))}
+        </div>
+      </Section>
+
       <Ecosystem />
       <Stats />
       <ClosingCta />

@@ -7,11 +7,12 @@ const columns = [
     title: "Company",
     links: [
       { label: "Home", to: "/" },
+      { label: "Services", to: "/services" },
       { label: "Solutions", to: "/solutions" },
       { label: "Internship Program", to: "/internship" },
       { label: "ProtoArena & Ecosystem", to: "/arena" },
       { label: "Courses", to: "/courses" },
-      { label: "Contact Us", to: "/", hash: "contact" },
+      { label: "Contact Us", to: "/contact" },
     ],
   },
   {
@@ -35,9 +36,9 @@ const columns = [
   {
     title: "Legal",
     links: [
-      { label: "Privacy Policy", to: "/", hash: "contact" },
-      { label: "Terms of Service", to: "/", hash: "contact" },
-      { label: "Cookie Policy", to: "/", hash: "contact" },
+      { label: "Privacy Policy", to: "/privacy-policy" },
+      { label: "Terms of Service", to: "/terms" },
+      { label: "Cookie Policy", to: "/cookie-policy" },
     ],
   },
 ];
@@ -48,7 +49,18 @@ export function SiteFooter() {
       <div className="mx-auto grid w-full max-w-6xl gap-12 lg:grid-cols-[1.4fr_repeat(4,1fr)]">
         <div>
           <div className="flex items-center gap-3">
-            <img src={logoAsset.url} alt="ProtoTech Solution logo" className="h-12 w-12 object-contain" />
+            <div className="relative flex h-12 w-12 items-center justify-center">
+              <img
+                src="/ligthLogo.png"
+                alt="ProtoTech Solution logo"
+                className="h-12 w-12 object-contain dark:hidden"
+              />
+              <img
+                src="/DarkLogo.png"
+                alt="ProtoTech Solution logo"
+                className="hidden h-12 w-12 object-contain dark:block"
+              />
+            </div>
             <span className="font-display text-lg font-semibold text-foreground">
               Proto<span className="text-brand">Tech</span>
             </span>
