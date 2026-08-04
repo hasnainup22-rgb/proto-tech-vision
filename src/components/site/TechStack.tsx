@@ -49,7 +49,7 @@ export function TechStack() {
         ))}
       </div>
       <div className="mt-12 flex flex-wrap justify-center gap-3">
-        <PillLink href="#products">Explore Services</PillLink>
+        <PillLink to="/solutions">Explore Services</PillLink>
         <PillLink href="#contact" variant="outline">
           Book a demo
         </PillLink>

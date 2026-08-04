@@ -1,4 +1,5 @@
 import { Pill, PillLink } from "./primitives";
+import { Reveal } from "./Reveal";
 
 const facts = [
   { label: "Duration", value: "6 Weeks Hybrid" },
@@ -15,7 +16,7 @@ const benefits = [
 export function Internship() {
   return (
     <section id="internship" className="scroll-mt-28 bg-surface px-5 py-20 md:py-28">
-      <div className="mx-auto grid w-full max-w-6xl items-center gap-12 lg:grid-cols-2">
+      <Reveal className="mx-auto grid w-full max-w-6xl items-center gap-12 lg:grid-cols-2">
         <div className="rounded-3xl border border-border bg-background p-8">
           <p className="text-[11px] font-semibold tracking-[0.2em] text-brand uppercase">
             Live Engineering Sprints
@@ -54,12 +55,12 @@ export function Internship() {
           </ul>
           <div className="mt-9 flex flex-wrap gap-3">
             <PillLink href="#contact">Apply for Internship</PillLink>
-            <PillLink href="#courses" variant="outline">
+            <PillLink to="/internship" variant="outline">
               View Internship Tracks
             </PillLink>
           </div>
         </div>
-      </div>
+      </Reveal>
     </section>
   );
 }
