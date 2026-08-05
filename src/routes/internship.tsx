@@ -59,36 +59,6 @@ function InternshipPage() {
         description="Practical industry experience on live commercial client projects under senior engineering mentorship — hybrid, 6 weeks, open to Semesters 1–8."
       />
       <Internship />
-      <Section>
-        <SectionHeading label="Internship Tracks" title="Choose your" highlight="engineering track" />
-        <div className="mt-14 grid gap-6 md:grid-cols-2">
-          {tracks.map((track) => (
-            <article
-              key={track.name}
-              className="rounded-3xl border border-border bg-background p-8 transition-colors hover:border-brand"
-            >
-              <h3 className="text-lg font-semibold text-foreground">{track.name}</h3>
-              <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{track.detail}</p>
-            </article>
-          ))}
-        </div>
-      </Section>
-      <Section className="bg-surface">
-        <SectionHeading label="How It Works" title="Your path from apply to" highlight="certificate" />
-        <ol className="mx-auto mt-14 max-w-3xl space-y-5">
-          {steps.map((step, index) => (
-            <li
-              key={step}
-              className="flex gap-4 rounded-3xl border border-border bg-background p-6 text-sm leading-relaxed text-foreground/80"
-            >
-              <span className="font-display text-base font-semibold text-brand-deep">
-                {String(index + 1).padStart(2, "0")}
-              </span>
-              {step}
-            </li>
-          ))}
-        </ol>
-      </Section>
       <ClosingCta />
     </PageShell>
   );

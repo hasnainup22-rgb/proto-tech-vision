@@ -52,13 +52,9 @@ function Index() {
       <SiteHeader />
       <main>
         <Hero />
-        <Stats />
         <AboutPromo />
         <Internship />
-        <ProtoArenaSection />
-        <Ecosystem />
         <Products />
-        <TechStack />
         <Testimonials />
         <ClosingCta />
       </main>

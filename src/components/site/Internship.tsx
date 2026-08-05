@@ -54,7 +54,7 @@ export function Internship() {
             ))}
           </ul>
           <div className="mt-9 flex flex-wrap gap-3">
-            <PillLink href="#contact">Apply for Internship</PillLink>
+            <PillLink to="/apply-internship">Apply for Internship</PillLink>
             <PillLink to="/internship" variant="outline">
               View Internship Tracks
             </PillLink>

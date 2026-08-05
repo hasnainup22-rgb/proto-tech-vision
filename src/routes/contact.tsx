@@ -1,19 +1,29 @@
 import { createFileRoute } from "@tanstack/react-router";
 
 import { PageShell } from "@/components/site/PageShell";
-import { PageHero, Section, SectionHeading, TextLink, PillLink } from "@/components/site/primitives";
+import { PageHero, Section, SectionHeading, PillLink } from "@/components/site/primitives";
 import { Reveal } from "@/components/site/Reveal";
 
 const title = "Contact ProtoTech | Get in touch";
 const description =
-  "Contact ProtoTech for software services, internships, courses, and ecosystem support. Submit your details and we will reach out quickly.";
+  "Contact ProtoTech for software services, internships, courses, and ecosystem support. Share your details and we will reach out quickly.";
 
-const solutions = [
-  "Hospital Management",
-  "School Management",
-  "HR Management",
-  "Web & Mobile Products",
-  "Digital Marketing",
+const contactDetails = [
+  {
+    title: "Email",
+    value: "prototechsolution.pk@gmail.com",
+    href: "mailto:prototechsolution.pk@gmail.com",
+  },
+  {
+    title: "Phone",
+    value: "+92 312 0516684",
+    href: "tel:+923120516684",
+  },
+  {
+    title: "WhatsApp",
+    value: "+92 312 0516684",
+    href: "https://wa.me/923120516684",
+  },
 ];
 
 export const Route = createFileRoute("/contact")({
@@ -35,20 +45,14 @@ export const Route = createFileRoute("/contact")({
 function ContactPage() {
   return (
     <PageShell>
-      <PageHero
-        label="Talk to Us"
-        title="Contact ProtoTech"
-        highlight="for solutions and support"
-        description="Share your name, email and what solution you are looking for. Our team will contact you to discuss the best path forward."
-      />
       <Section>
-        <div className="grid gap-12 lg:grid-cols-[1.15fr_0.85fr]">
+        <div className="grid gap-12 lg:grid-cols-[1.05fr_0.95fr]">
           <Reveal className="rounded-[2rem] border border-border bg-background p-8 shadow-sm shadow-black/5">
             <SectionHeading
-              label="Send your request"
-              title="Reach our team"
-              highlight="today"
-              description="Fill in your details and select the solution you need. We reply quickly with a clear next step."
+              label="Contact form"
+              title="Apply for"
+              highlight="services or solutions"
+              description="Tell us the basic details and the service you need. We’ll get back to you quickly with the best next step."
             />
             <form className="mt-10 space-y-6">
               <div className="grid gap-6 sm:grid-cols-2">
@@ -71,26 +75,36 @@ function ContactPage() {
                   />
                 </label>
               </div>
-              <label className="flex flex-col gap-2 text-sm text-foreground/90">
-                Solution
-                <select
-                  name="solution"
-                  className="rounded-3xl border border-border bg-surface px-4 py-3 text-sm text-foreground outline-none transition focus:border-brand focus:ring-2 focus:ring-brand/20"
-                >
-                  <option>Choose a solution</option>
-                  {solutions.map((option) => (
-                    <option key={option} value={option}>
-                      {option}
-                    </option>
-                  ))}
-                </select>
-              </label>
+              <div className="grid gap-6 sm:grid-cols-2">
+                <label className="flex flex-col gap-2 text-sm text-foreground/90">
+                  Phone number
+                  <input
+                    name="phone"
+                    type="tel"
+                    placeholder="03XX XXXXXXX"
+                    className="rounded-3xl border border-border bg-surface px-4 py-3 text-sm text-foreground outline-none transition focus:border-brand focus:ring-2 focus:ring-brand/20"
+                  />
+                </label>
+                <label className="flex flex-col gap-2 text-sm text-foreground/90">
+                  Project type
+                  <select
+                    name="solution"
+                    className="rounded-3xl border border-border bg-surface px-4 py-3 text-sm text-foreground outline-none transition focus:border-brand focus:ring-2 focus:ring-brand/20"
+                  >
+                    <option>Choose service</option>
+                    <option value="software">Software Solution</option>
+                    <option value="internship">Internship Support</option>
+                    <option value="training">Training / Course</option>
+                    <option value="consulting">Consulting</option>
+                  </select>
+                </label>
+              </div>
               <label className="flex flex-col gap-2 text-sm text-foreground/90">
                 Message
                 <textarea
                   name="message"
-                  rows={6}
-                  placeholder="Tell us what you need and your preferred timeline."
+                  rows={5}
+                  placeholder="Briefly describe what you need and your timeline."
                   className="rounded-3xl border border-border bg-surface px-4 py-3 text-sm text-foreground outline-none transition focus:border-brand focus:ring-2 focus:ring-brand/20"
                 />
               </label>
@@ -103,94 +117,43 @@ function ContactPage() {
             </form>
           </Reveal>
 
-          <Reveal className="grid gap-6 rounded-[2rem] border border-border bg-surface p-8">
-            <div>
-              <h3 className="text-lg font-semibold text-foreground">Need quick support?</h3>
-              <p className="mt-4 text-sm leading-relaxed text-muted-foreground">
-                Email us directly at <span className="text-brand-deep">prototechsolution.pk@gmail.com</span> or call{' '}
-                <span className="text-brand-deep">+92 312 0516684</span> for urgent inquiries.
-              </p>
-            </div>
-            <div className="grid gap-4 rounded-3xl border border-border bg-background p-6">
-              <div>
-                <p className="text-xs font-semibold uppercase tracking-[0.24em] text-muted-foreground">
-                  Trusted by
-                </p>
-                <p className="mt-3 text-lg font-semibold text-foreground">100+ clients</p>
-              </div>
-              <div>
-                <p className="text-xs font-semibold uppercase tracking-[0.24em] text-muted-foreground">
-                  Response time
-                </p>
-                <p className="mt-3 text-lg font-semibold text-foreground">Within 24 hours</p>
-              </div>
-              <div>
-                <p className="text-xs font-semibold uppercase tracking-[0.24em] text-muted-foreground">
-                  Available for
-                </p>
-                <p className="mt-3 text-lg font-semibold text-foreground">Software, internships, courses, and community programs</p>
-              </div>
-            </div>
-            <div className="grid gap-4">
-              <img
-                src="https://images.unsplash.com/photo-1556761175-4b46a572b786?auto=format&fit=crop&w=900&q=80"
-                alt="Team collaborating over a contact inquiry"
-                className="h-48 w-full rounded-3xl object-cover"
-                loading="lazy"
-              />
-              <img
-                src="https://images.unsplash.com/photo-1497366811353-6870744d04b2?auto=format&fit=crop&w=900&q=80"
-                alt="Customer service and startup team discussion"
-                className="h-48 w-full rounded-3xl object-cover"
-                loading="lazy"
-              />
-            </div>
-            <div className="rounded-3xl border border-border bg-background p-6 text-sm text-muted-foreground">
-              <p className="font-semibold text-foreground">What to include in your message</p>
-              <ul className="mt-4 space-y-2 list-disc pl-5">
-                <li>Project goals and timeline</li>
-                <li>Primary challenges you want solved</li>
-                <li>Preferred budget or program type</li>
-              </ul>
-            </div>
+          <Reveal className="rounded-[2rem] border border-border bg-surface p-0 overflow-hidden">
+            <img
+              src="https://images.unsplash.com/photo-1556761175-4b46a572b786?auto=format&fit=crop&w=900&q=80"
+              alt="Team collaborating over a contact inquiry"
+              className="h-full w-full object-cover"
+              loading="lazy"
+            />
           </Reveal>
         </div>
       </Section>
+
       <Section className="bg-surface">
         <SectionHeading
-          label="Why contact us"
-          title="Faster decisions"
-          highlight="with clarity"
-          description="We help businesses and students pick the best solution quickly by matching the right service to your goals."
+          label="Direct contact"
+          title="Reach us by"
+          highlight="email, phone or WhatsApp"
+          description="Choose the best way to connect and send your inquiry directly to our team."
         />
         <div className="mt-14 grid gap-6 md:grid-cols-3">
-          {solutions.map((item) => (
+          {contactDetails.map((contact) => (
             <Reveal
-              key={item}
+              key={contact.title}
               className="rounded-3xl border border-border bg-background p-8 text-center"
             >
-              <p className="text-sm font-semibold uppercase tracking-[0.2em] text-brand">{item}</p>
-              <p className="mt-5 text-sm leading-relaxed text-muted-foreground">
-                Expert guidance on how to implement this solution with real product and internship support.
+              <p className="text-sm font-semibold uppercase tracking-[0.2em] text-muted-foreground">
+                {contact.title}
               </p>
+              <a
+                href={contact.href}
+                className="mt-5 block text-xl font-semibold text-brand-deep transition hover:text-brand"
+              >
+                {contact.value}
+              </a>
             </Reveal>
           ))}
         </div>
       </Section>
-      <div className="px-5 py-16">
-        <div className="mx-auto max-w-6xl rounded-[2rem] border border-border bg-background p-10 shadow-lg shadow-black/5">
-          <h3 className="text-xl font-semibold text-foreground">Need a tailored proposal?</h3>
-          <p className="mt-4 max-w-2xl text-sm leading-relaxed text-muted-foreground">
-            Describe your business, timeline and preferred solution when filling the form. We'll share a proposal that matches your needs. If you want, also mention whether you'd like a course, internship or managed product option.
-          </p>
-          <div className="mt-8 flex flex-wrap gap-3">
-            <PillLink to="/services">View services</PillLink>
-            <PillLink to="/apply-internship" variant="outline">
-              Apply for internship
-            </PillLink>
-          </div>
-        </div>
-      </div>
     </PageShell>
   );
 }

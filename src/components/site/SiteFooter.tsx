@@ -4,41 +4,22 @@ import logoAsset from "@/assets/prototech-logo.png.asset.json";
 
 const columns = [
   {
-    title: "Company",
+    title: "Quick Links",
     links: [
       { label: "Home", to: "/" },
+      { label: "About", to: "/about" },
       { label: "Services", to: "/services" },
-      { label: "Solutions", to: "/solutions" },
-      { label: "Internship Program", to: "/internship" },
-      { label: "ProtoArena & Ecosystem", to: "/arena" },
-      { label: "Courses", to: "/courses" },
-      { label: "Contact Us", to: "/contact" },
+      { label: "Internship", to: "/internship" },
+      { label: "Arena", to: "/arena" },
+      { label: "Contact", to: "/contact" },
     ],
   },
   {
-    title: "Products",
+    title: "Contact",
     links: [
-      { label: "Hospital Management & Information System", to: "/solutions" },
-      { label: "Human Resource Management", to: "/solutions" },
-      { label: "Employee Self Service Portal", to: "/solutions" },
-      { label: "Attendance Management", to: "/solutions" },
-    ],
-  },
-  {
-    title: "Courses",
-    links: [
-      { label: "Web Development (MERN / Laravel)", to: "/courses" },
-      { label: "Mobile App Development", to: "/courses" },
-      { label: "WordPress / Shopify Development", to: "/courses" },
-      { label: "Digital Marketing", to: "/courses" },
-    ],
-  },
-  {
-    title: "Legal",
-    links: [
-      { label: "Privacy Policy", to: "/privacy-policy" },
-      { label: "Terms of Service", to: "/terms" },
-      { label: "Cookie Policy", to: "/cookie-policy" },
+      { label: "prototechsolution.pk@gmail.com", to: "mailto:prototechsolution.pk@gmail.com" },
+      { label: "+92 312 0516684", to: "tel:+923120516684" },
+      { label: "Contact Page", to: "/contact" },
     ],
   },
 ];
@@ -46,7 +27,7 @@ const columns = [
 export function SiteFooter() {
   return (
     <footer className="scroll-mt-28 border-t border-border bg-surface px-5 py-16">
-      <div className="mx-auto grid w-full max-w-6xl gap-12 lg:grid-cols-[1.4fr_repeat(4,1fr)]">
+      <div className="mx-auto grid w-full max-w-6xl gap-12 lg:grid-cols-[1.4fr_1fr_1fr]">
         <div>
           <div className="flex items-center gap-3">
             <div className="relative flex h-12 w-12 items-center justify-center">
@@ -89,13 +70,22 @@ export function SiteFooter() {
             <ul className="mt-5 space-y-3">
               {column.links.map((link) => (
                 <li key={link.label}>
-                  <Link
-                    to={link.to}
-                    {...("hash" in link && link.hash ? { hash: link.hash } : {})}
-                    className="text-sm leading-snug text-foreground/75 transition-colors hover:text-brand-deep"
-                  >
-                    {link.label}
-                  </Link>
+                  {link.to.startsWith("mailto:") || link.to.startsWith("tel:") ? (
+                    <a
+                      href={link.to}
+                      className="text-sm leading-snug text-foreground/75 transition-colors hover:text-brand-deep"
+                    >
+                      {link.label}
+                    </a>
+                  ) : (
+                    <Link
+                      to={link.to}
+                      {...("hash" in link && link.hash ? { hash: link.hash } : {})}
+                      className="text-sm leading-snug text-foreground/75 transition-colors hover:text-brand-deep"
+                    >
+                      {link.label}
+                    </Link>
+                  )}
                 </li>
               ))}
             </ul>

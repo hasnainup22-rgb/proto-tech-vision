@@ -3,23 +3,45 @@ import { Reveal } from "./Reveal";
 
 function WaveBackdrop() {
   return (
-    <svg
-      aria-hidden="true"
-      viewBox="0 0 1440 420"
-      preserveAspectRatio="none"
-      className="pointer-events-none absolute inset-x-0 top-1/3 h-64 w-full"
-    >
-      {[0, 18, 36, 54, 72].map((offset, i) => (
-        <path
-          key={offset}
-          d={`M0 ${190 + offset} C 260 ${110 + offset}, 500 ${300 + offset}, 760 ${210 + offset} S 1200 ${100 + offset}, 1440 ${180 + offset}`}
-          fill="none"
-          stroke="currentColor"
-          strokeWidth="1.2"
-          className={i % 2 === 0 ? "text-brand/40" : "text-brand-deep/25"}
-        />
-      ))}
-    </svg>
+    <div className="absolute bottom-20 left-0 w-full h-[300px] sm:h-[400px] md:h-[600px] overflow-hidden pointer-events-none">
+      <div className="relative w-full overflow-hidden h-[300px] sm:h-[400px] md:h-[600px]">
+        <svg
+          className="absolute inset-0 w-[200%] h-full"
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 1440 320"
+          preserveAspectRatio="none"
+        >
+          <path
+            fill="none"
+            stroke="#00A99D"
+            strokeWidth="0.6"
+            className="animate-wave1"
+            d="M0,160  C200,80 400,240 600,160  S1000,240 1200,160  S1600,240 1800,160"
+          />
+          <path
+            fill="none"
+            stroke="#F9B233"
+            strokeWidth="0.6"
+            className="animate-wave2"
+            d="M0,180  C250,100 500,260 750,180  S1250,260 1500,180  S2000,260 2250,180"
+          />
+          <path
+            fill="none"
+            stroke="#96D250"
+            strokeWidth="0.6"
+            className="animate-wave3"
+            d="M0,200  C180,160 420,240 660,200  S1100,260 1320,200  S1760,240 1980,200"
+          />
+          <path
+            fill="none"
+            stroke="#B4B4B4"
+            strokeWidth="0.6"
+            className="animate-wave4"
+            d="M0,220  C300,140 600,300 900,220  S1500,300 1800,220  S2100,300 2400,220"
+          />
+        </svg>
+      </div>
+    </div>
   );
 }
 
@@ -40,9 +62,11 @@ export function Hero() {
         </p>
         <div className="mt-9 flex flex-wrap justify-center gap-3">
           <PillLink href="#contact" variant="outline">
-            Free Consultation
+            Contact Sales
           </PillLink>
-          <PillLink to="/solutions">Our Services</PillLink>
+          <PillLink to="/services">
+            Explore Services
+          </PillLink>
         </div>
       </Reveal>
       </section>
