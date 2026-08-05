@@ -1,4 +1,5 @@
 import { Section, SectionHeading } from "./primitives";
+import { Reveal } from "./Reveal";
 
 const reviews = [
   {
@@ -27,9 +28,10 @@ export function Testimonials() {
       <SectionHeading label="Customer Reviews" title="Trusted by" highlight="Real Customers" />
       <div className="mt-14 grid gap-6 md:grid-cols-3">
         {reviews.map((review) => (
-          <figure
+          <Reveal
             key={review.name}
             className="flex flex-col rounded-3xl border border-border bg-background p-8"
+            direction="bottom"
           >
             <blockquote className="text-sm leading-relaxed text-foreground/80">
               “{review.quote}”
@@ -38,7 +40,7 @@ export function Testimonials() {
               <p className="text-sm font-semibold text-foreground">{review.name}</p>
               <p className="mt-1 text-xs tracking-wide text-muted-foreground uppercase">{review.org}</p>
             </figcaption>
-          </figure>
+          </Reveal>
         ))}
       </div>
     </Section>

@@ -16,8 +16,8 @@ const benefits = [
 export function Internship() {
   return (
     <section id="internship" className="scroll-mt-28 bg-surface px-5 py-20 md:py-28">
-      <Reveal className="mx-auto grid w-full max-w-6xl items-center gap-12 lg:grid-cols-2">
-        <div className="rounded-3xl border border-border bg-background p-8">
+      <div className="mx-auto grid w-full max-w-6xl items-center gap-12 lg:grid-cols-2">
+        <Reveal className="rounded-3xl border border-border bg-background p-8" direction="left">
           <p className="text-[11px] font-semibold tracking-[0.2em] text-brand uppercase">
             Live Engineering Sprints
           </p>
@@ -34,9 +34,9 @@ export function Internship() {
               </div>
             ))}
           </dl>
-        </div>
+        </Reveal>
 
-        <div>
+        <Reveal direction="right">
           <Pill>University Student Industry Track</Pill>
           <h2 className="mt-5 text-3xl font-semibold text-foreground md:text-4xl">
             6-Week University <span className="text-brand-deep">Internship Program</span>
@@ -59,8 +59,8 @@ export function Internship() {
               View Internship Tracks
             </PillLink>
           </div>
-        </div>
-      </Reveal>
+        </Reveal>
+      </div>
     </section>
   );
 }

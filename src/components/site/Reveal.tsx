@@ -5,10 +5,12 @@ export function Reveal({
   children,
   className,
   delay = 0,
+  direction = "bottom",
 }: {
   children: ReactNode;
   className?: string;
   delay?: number;
+  direction?: "left" | "right" | "bottom";
 }) {
   const ref = useRef<HTMLDivElement>(null);
   const [visible, setVisible] = useState(false);
@@ -33,13 +35,20 @@ export function Reveal({
     return () => observer.disconnect();
   }, []);
 
+  const hiddenClass =
+    direction === "left"
+      ? "translate-x-8 opacity-0"
+      : direction === "right"
+      ? "-translate-x-8 opacity-0"
+      : "translate-y-6 opacity-0";
+
   return (
     <div
       ref={ref}
       style={{ transitionDelay: `${delay}ms` }}
       className={cn(
         "transition-all duration-700 ease-out motion-reduce:transition-none",
-        visible ? "translate-y-0 opacity-100" : "translate-y-6 opacity-0",
+        visible ? "translate-x-0 translate-y-0 opacity-100" : hiddenClass,
         className,
       )}
     >

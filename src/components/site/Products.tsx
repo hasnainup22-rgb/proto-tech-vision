@@ -1,4 +1,5 @@
 import { Section, SectionHeading, TextLink, PillLink } from "./primitives";
+import { Reveal } from "./Reveal";
 import { Activity, BookOpen, Briefcase } from "lucide-react";
 
 const products = [
@@ -35,9 +36,10 @@ export function Products() {
       />
       <div className="mt-14 grid gap-6 md:grid-cols-3">
         {products.map((product) => (
-          <article
+          <Reveal
             key={product.title}
             className="flex flex-col rounded-3xl border border-border bg-background p-8 transition-colors hover:border-brand"
+            direction="bottom"
           >
             <div className="flex items-center gap-4">
               <div className="h-12 w-12 flex items-center justify-center rounded-full bg-transparent text-brand">
@@ -51,7 +53,7 @@ export function Products() {
             <div className="mt-auto pt-7">
               <TextLink href="#contact">Learn More</TextLink>
             </div>
-          </article>
+          </Reveal>
         ))}
       </div>
       <div className="mt-12 flex justify-center">

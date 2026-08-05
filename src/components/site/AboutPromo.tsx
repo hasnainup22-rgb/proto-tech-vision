@@ -7,7 +7,7 @@ export function AboutPromo() {
     <section className="border-b border-border bg-background px-5 py-20">
       <div className="mx-auto max-w-6xl">
         <div className="grid gap-10 lg:grid-cols-[1fr_0.8fr] items-center">
-          <div>
+          <Reveal className="space-y-6" direction="right">
             <Pill>ABOUT US</Pill>
             <h2 className="mt-6 text-4xl font-semibold text-foreground md:text-5xl">
               About ProtoTech
@@ -22,9 +22,9 @@ export function AboutPromo() {
                 View our services <ArrowRight size={16} />
               </PillLink>
             </div>
-          </div>
+          </Reveal>
 
-          <Reveal className="flex items-center justify-center">
+          <Reveal className="flex items-center justify-center" direction="left">
             <img src="/prototech-logo.png" alt="ProtoTech logo" className="w-56 h-56" />
           </Reveal>
         </div>
@@ -36,8 +36,13 @@ export function AboutPromo() {
             { title: "Results-driven", desc: "We measure success by tangible operational results.", icon: <BarChart2 size={18} /> },
             { title: "Cross-functional teams", desc: "Experts who work as your dedicated team.", icon: <Users size={18} /> },
             { title: "Future-ready", desc: "Cloud-native, microservices, AI/ML ready.", icon: <Zap size={18} /> },
-          ].map((card) => (
-            <Reveal key={card.title} className="rounded-2xl border border-border bg-surface p-6 text-center">
+          ].map((card, index) => (
+            <Reveal
+              key={card.title}
+              className="rounded-2xl border border-border bg-surface p-6 text-center"
+              direction="bottom"
+              delay={index * 100}
+            >
               <div className="h-12 w-12 mx-auto rounded-full bg-transparent flex items-center justify-center mb-4">
                 <span className="text-brand">{card.icon}</span>
               </div>

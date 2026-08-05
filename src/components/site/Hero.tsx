@@ -13,31 +13,43 @@ function WaveBackdrop() {
         >
           <path
             fill="none"
-            stroke="#00A99D"
+            stroke="var(--wave-1)"
             strokeWidth="0.6"
+            strokeOpacity="0.9"
             className="animate-wave1"
             d="M0,160  C200,80 400,240 600,160  S1000,240 1200,160  S1600,240 1800,160"
           />
           <path
             fill="none"
-            stroke="#F9B233"
+            stroke="var(--wave-2)"
             strokeWidth="0.6"
+            strokeOpacity="0.75"
             className="animate-wave2"
             d="M0,180  C250,100 500,260 750,180  S1250,260 1500,180  S2000,260 2250,180"
           />
           <path
             fill="none"
-            stroke="#96D250"
+            stroke="var(--wave-3)"
             strokeWidth="0.6"
+            strokeOpacity="0.6"
             className="animate-wave3"
             d="M0,200  C180,160 420,240 660,200  S1100,260 1320,200  S1760,240 1980,200"
           />
           <path
             fill="none"
-            stroke="#B4B4B4"
+            stroke="var(--wave-4)"
             strokeWidth="0.6"
+            strokeOpacity="0.5"
             className="animate-wave4"
             d="M0,220  C300,140 600,300 900,220  S1500,300 1800,220  S2100,300 2400,220"
+          />
+          <path
+            fill="none"
+            stroke="var(--wave-5)"
+            strokeWidth="0.6"
+            strokeOpacity="0.45"
+            className="animate-wave5"
+            d="M0,240  C320,180 640,280 960,240  S1600,280 1920,240  S2240,280 2560,240"
           />
         </svg>
       </div>
@@ -50,7 +62,7 @@ export function Hero() {
     <>
       <section id="home" className="relative overflow-hidden px-5 pt-20 pb-24 md:pt-28 md:pb-32">
       <WaveBackdrop />
-      <Reveal className="relative mx-auto max-w-3xl text-center">
+      <Reveal className="relative mx-auto max-w-3xl text-center" direction="bottom">
         <Pill>Trusted by 100+ enterprises</Pill>
         <p className="mt-8 text-xl font-medium text-muted-foreground md:text-2xl">Welcome to ProtoTech</p>
         <h1 className="mt-3 text-4xl leading-tight font-semibold text-foreground md:text-6xl">

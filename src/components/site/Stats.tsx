@@ -11,7 +11,7 @@ const stats = [
 export function Stats() {
   return (
     <section className="border-y border-border bg-background px-5 py-16">
-      <Reveal className="mx-auto w-full max-w-6xl">
+      <Reveal className="mx-auto w-full max-w-6xl" direction="bottom">
         <h2 className="text-center text-2xl font-semibold text-foreground md:text-3xl">
           Our Achievements
         </h2>

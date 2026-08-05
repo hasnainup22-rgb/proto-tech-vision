@@ -4,7 +4,7 @@ import { Reveal } from "./Reveal";
 export function ClosingCta() {
   return (
     <section id="contact" className="scroll-mt-28 px-5 py-24">
-      <Reveal className="mx-auto max-w-5xl px-8 py-16 text-center">
+      <Reveal className="mx-auto max-w-5xl px-8 py-16 text-center" direction="bottom">
         <Pill>Ready to begin?</Pill>
         <h2 className="mt-6 text-3xl font-bold text-foreground md:text-4xl">
           Let's build something <span className="text-brand-deep">extraordinary.</span>

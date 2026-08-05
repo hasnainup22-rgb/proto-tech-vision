@@ -31,7 +31,11 @@ export function ProtoArenaSection() {
       />
       <div className="mt-14 grid gap-6 md:grid-cols-2 lg:grid-cols-4">
         {features.map((feature) => (
-          <Reveal key={feature.title} className="rounded-3xl border border-border bg-background p-8">
+          <Reveal
+            key={feature.title}
+            className="rounded-3xl border border-border bg-background p-8"
+            direction="bottom"
+          >
             <h3 className="text-lg font-semibold text-foreground">{feature.title}</h3>
             <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{feature.description}</p>
           </Reveal>
