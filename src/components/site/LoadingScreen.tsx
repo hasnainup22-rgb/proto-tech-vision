@@ -21,12 +21,12 @@ export function LoadingScreen({ visible }: { visible: boolean }) {
             <img
               src="/ligthLogo.png"
               alt="ProtoTech logo light theme"
-              className="w-48 h-48 object-contain dark:hidden"
+              className="w-80 h-80 object-contain dark:hidden"
             />
             <img
               src="/DarkLogo.png"
               alt="ProtoTech logo dark theme"
-              className="hidden w-48 h-48 object-contain dark:block"
+              className="hidden w-80 h-80 object-contain dark:block"
             />
           </motion.div>
 
