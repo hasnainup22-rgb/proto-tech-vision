@@ -2,6 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 
 import { PageShell } from "@/components/site/PageShell";
 import { PageHero, Section, SectionHeading, PillLink, TextLink } from "@/components/site/primitives";
+import { Linkedin, Github } from "lucide-react";
 import { ClosingCta } from "@/components/site/ClosingCta";
 import { Reveal } from "@/components/site/Reveal";
 
@@ -173,27 +174,55 @@ function AboutPage() {
               name: "Ahsan Khan",
               role: "Founder & Lead Architect",
               focus: "Enterprise systems, product strategy and team enablement.",
+              image: "/team/ahsan.jpg",
+              linkedin: "https://www.linkedin.com/in/ahsan-khan",
+              github: "https://github.com/ahsankhan",
             },
             {
               name: "Sana Iqbal",
               role: "Program Director",
               focus: "Internship mentoring, academy curriculum and community engagement.",
+              image: "/team/sana.jpg",
+              linkedin: "https://www.linkedin.com/in/sana-iqbal",
+              github: "https://github.com/sana-iqbal",
             },
             {
               name: "Bilal Ahmed",
               role: "Head of Growth",
               focus: "Partnerships, esports operations and student outreach.",
+              image: "/team/bilal.jpg",
+              linkedin: "https://www.linkedin.com/in/bilal-ahmed",
+              github: "https://github.com/bilalahmed",
             },
             {
               name: "Zara Malik",
               role: "Design Lead",
               focus: "Human-centered UI, branding and digital campaign experiences.",
+              image: "/team/zara.jpg",
+              linkedin: "https://www.linkedin.com/in/zara-malik",
+              github: "https://github.com/zaramalik",
             },
           ].map((member) => (
-            <Reveal key={member.name} className="rounded-3xl border border-border bg-background p-8">
-              <p className="text-sm font-semibold uppercase tracking-[0.24em] text-muted-foreground">{member.role}</p>
-              <h3 className="mt-4 text-xl font-semibold text-foreground">{member.name}</h3>
+            <Reveal key={member.name} className="rounded-3xl border border-border bg-background p-8 text-center">
+              <div className="mx-auto h-24 w-24 overflow-hidden rounded-full">
+                <img
+                  src={member.image}
+                  alt={member.name}
+                  className="h-full w-full object-cover"
+                  onError={(e) => ((e.currentTarget as HTMLImageElement).src = "/prototech-logo.png")}
+                />
+              </div>
+              <p className="mt-4 text-sm font-semibold uppercase tracking-[0.12em] text-muted-foreground">{member.role}</p>
+              <h3 className="mt-2 text-xl font-semibold text-foreground">{member.name}</h3>
               <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{member.focus}</p>
+              <div className="mt-4 flex items-center justify-center gap-3">
+                <a href={member.linkedin} target="_blank" rel="noreferrer" className="text-muted-foreground hover:text-brand">
+                  <Linkedin size={18} />
+                </a>
+                <a href={member.github} target="_blank" rel="noreferrer" className="text-muted-foreground hover:text-brand">
+                  <Github size={18} />
+                </a>
+              </div>
             </Reveal>
           ))}
         </div>

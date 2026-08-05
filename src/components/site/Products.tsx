@@ -1,4 +1,5 @@
 import { Section, SectionHeading, TextLink, PillLink } from "./primitives";
+import { Activity, BookOpen, Briefcase } from "lucide-react";
 
 const products = [
   {
@@ -6,18 +7,21 @@ const products = [
     title: "Hospital Management",
     description: "Complete patient records, billing, and pharmacy management.",
     price: "From PKR 5K / mo",
+    icon: <Activity size={18} />,
   },
   {
     sector: "Education",
     title: "School Management",
     description: "Student records, fee management, and examination system.",
     price: "From PKR 15 / student",
+    icon: <BookOpen size={18} />,
   },
   {
     sector: "Enterprise",
     title: "HR Management",
     description: "Streamline HR operations with employee records, payroll, and attendance.",
     price: "From PKR 4K / mo",
+    icon: <Briefcase size={18} />,
   },
 ];
 
@@ -35,9 +39,12 @@ export function Products() {
             key={product.title}
             className="flex flex-col rounded-3xl border border-border bg-background p-8 transition-colors hover:border-brand"
           >
-            <p className="text-[11px] font-semibold tracking-[0.2em] text-brand uppercase">
-              {product.sector}
-            </p>
+            <div className="flex items-center gap-4">
+              <div className="h-12 w-12 flex items-center justify-center rounded-full bg-transparent text-brand">
+                {product.icon}
+              </div>
+              <p className="text-[11px] font-semibold tracking-[0.2em] text-brand uppercase">{product.sector}</p>
+            </div>
             <h3 className="mt-4 text-lg font-semibold text-foreground">{product.title}</h3>
             <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{product.description}</p>
             <p className="mt-6 text-base font-semibold text-brand-deep">{product.price}</p>

@@ -67,7 +67,7 @@ export function PillLink({
   variant?: "solid" | "outline";
 }) {
   const classes = cn(
-    "inline-flex items-center justify-center rounded-full px-6 py-3 text-sm font-semibold transition-colors",
+    "relative inline-flex items-center justify-center overflow-hidden rounded-full px-6 py-3 text-sm font-semibold transition-colors duration-300 before:absolute before:inset-0 before:pointer-events-none before:bg-white/10 before:opacity-0 before:transition-all before:duration-300 hover:before:opacity-100",
     variant === "solid"
       ? "bg-brand-deep text-primary-foreground hover:bg-brand"
       : "border border-border bg-background text-foreground hover:border-brand hover:text-brand-deep",
@@ -131,16 +131,26 @@ export function PageHero({
   description: string;
 }) {
   return (
-    <section className="relative overflow-hidden border-b border-border bg-surface px-5 pt-16 pb-20 md:pt-20 md:pb-24">
-      <Reveal className="mx-auto max-w-3xl text-center">
-        <Pill>{label}</Pill>
-        <h1 className="mt-6 text-3xl leading-tight font-semibold text-foreground md:text-5xl">
-          {title} {highlight ? <span className="text-brand-deep">{highlight}</span> : null}
-        </h1>
-        <p className="mx-auto mt-5 max-w-2xl text-base leading-relaxed text-muted-foreground md:text-lg">
-          {description}
-        </p>
-      </Reveal>
-    </section>
+    <>
+      <section className="relative overflow-hidden px-5 pt-16 pb-20 md:pt-20 md:pb-24">
+        <Reveal className="mx-auto max-w-3xl text-center">
+          <Pill>{label}</Pill>
+          <h1 className="mt-6 text-3xl leading-tight font-semibold text-foreground md:text-5xl">
+            {title} {highlight ? <span className="text-brand-deep">{highlight}</span> : null}
+          </h1>
+          <p className="mx-auto mt-5 max-w-2xl text-base leading-relaxed text-muted-foreground md:text-lg">
+            {description}
+          </p>
+
+          <div className="mt-8 flex flex-wrap justify-center gap-3">
+            <PillLink to="/contact">Contact Sales</PillLink>
+            <PillLink to="/services" variant="outline">
+              View Services
+            </PillLink>
+          </div>
+        </Reveal>
+      </section>
+      <div className="border-t border-border" />
+    </>
   );
 }

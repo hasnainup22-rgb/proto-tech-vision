@@ -25,7 +25,8 @@ function WaveBackdrop() {
 
 export function Hero() {
   return (
-    <section id="home" className="relative overflow-hidden px-5 pt-20 pb-24 md:pt-28 md:pb-32">
+    <>
+      <section id="home" className="relative overflow-hidden px-5 pt-20 pb-24 md:pt-28 md:pb-32">
       <WaveBackdrop />
       <Reveal className="relative mx-auto max-w-3xl text-center">
         <Pill>Trusted by 100+ enterprises</Pill>
@@ -44,6 +45,8 @@ export function Hero() {
           <PillLink to="/solutions">Our Services</PillLink>
         </div>
       </Reveal>
-    </section>
+      </section>
+      <div className="border-t border-border" />
+    </>
   );
 }

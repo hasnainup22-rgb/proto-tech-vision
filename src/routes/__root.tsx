@@ -3,15 +3,16 @@ import {
   Outlet,
   Link,
   createRootRouteWithContext,
-  useRouter,
+  useLocation,
   HeadContent,
   Scripts,
 } from "@tanstack/react-router";
-import { useEffect, type ReactNode } from "react";
+import { useEffect, useState, type ReactNode } from "react";
 
 import appCss from "../styles.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
 import { SmoothScroll } from "@/components/site/SmoothScroll";
+import { LoadingScreen } from "@/components/site/LoadingScreen";
 
 function NotFoundComponent() {
   return (
@@ -137,16 +138,28 @@ function RootShell({ children }: { children: ReactNode }) {
 
 function RootComponent() {
   const { queryClient } = Route.useRouteContext();
+  const pathname = useLocation({ select: (location) => location.pathname });
+  const [showLoader, setShowLoader] = useState(true);
 
   useEffect(() => {
-    window.scrollTo({ top: 0, left: 0 });
+    window.scrollTo({ top: 0, left: 0, behavior: "auto" });
+  }, [pathname]);
+
+  useEffect(() => {
+    const timer = setTimeout(() => setShowLoader(false), 2000);
+    return () => clearTimeout(timer);
   }, []);
 
   return (
     <QueryClientProvider client={queryClient}>
-      <SmoothScroll />
-      {/* Required: nested routes render here. Removing <Outlet /> breaks all child routes. */}
-      <Outlet />
+      <LoadingScreen visible={showLoader} />
+      {!showLoader && <SmoothScroll />}
+      {!showLoader && (
+        <>
+          {/* Required: nested routes render here. Removing <Outlet /> breaks all child routes. */}
+          <Outlet />
+        </>
+      )}
     </QueryClientProvider>
   );
 }

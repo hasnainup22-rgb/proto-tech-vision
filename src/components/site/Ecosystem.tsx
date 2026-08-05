@@ -1,4 +1,5 @@
 import { Section, SectionHeading, TextLink } from "./primitives";
+import { Trophy, Book, MapPin, HeartPulse } from "lucide-react";
 
 const initiatives = [
   {
@@ -56,14 +57,17 @@ export function Ecosystem() {
         description="Empowering Pakistani youth, competitive gamers, and emerging developers through STEM education, career guidance, and mental wellness."
       />
       <div className="mt-14 grid gap-6 md:grid-cols-2">
-        {initiatives.map((item) => (
+        {initiatives.map((item, idx) => (
           <article
             key={item.title}
             className="flex flex-col rounded-3xl border border-border bg-background p-8 transition-colors hover:border-brand"
           >
-            <p className="text-[11px] font-semibold tracking-[0.16em] text-brand uppercase">
-              {item.label}
-            </p>
+            <div className="flex items-center gap-4">
+              <div className="h-12 w-12 flex items-center justify-center rounded-full bg-transparent text-brand">
+                {idx === 0 ? <Trophy size={18} /> : idx === 1 ? <Book size={18} /> : idx === 2 ? <MapPin size={18} /> : <HeartPulse size={18} />}
+              </div>
+              <p className="text-[11px] font-semibold tracking-[0.16em] text-brand uppercase">{item.label}</p>
+            </div>
             <h3 className="mt-4 text-xl font-semibold text-foreground">{item.title}</h3>
             <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{item.description}</p>
             <ul className="mt-6 flex flex-wrap gap-2">
