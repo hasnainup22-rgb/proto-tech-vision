@@ -1,5 +1,5 @@
 import { Reveal } from "./Reveal";
-import { Pill } from "./primitives";
+import { Pill, PillLink } from "./primitives";
 import { ArrowRight, Search, Shield, BarChart2, Users, Zap } from "lucide-react";
 
 export function AboutPromo() {
@@ -18,12 +18,9 @@ export function AboutPromo() {
               solutions that scale.
             </p>
             <div className="mt-8">
-              <a
-                href="/services"
-                className="inline-flex items-center gap-3 rounded-full border border-brand-deep px-5 py-3 text-sm font-semibold text-primary-foreground bg-brand-deep hover:bg-brand transition"
-              >
+              <PillLink to="/services">
                 View our services <ArrowRight size={16} />
-              </a>
+              </PillLink>
             </div>
           </div>
 
